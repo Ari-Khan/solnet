@@ -10,7 +10,6 @@
   <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
 
   <link rel="stylesheet" href="styles.css" />
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,22 +17,25 @@
   <script src="js/main.js" defer></script>
 </head>
 <body>
-
-  <nav>
-    <div class="logo">synapse</div>
-    <button class="logout" id="logoutBtn">Log out</button>
-  </nav>
-
-  <main>
-    <div class="welcome" id="welcomeText">Welcome</div>
-    <div class="email" id="emailText"></div>
-
-    <div class="card">
-      <img id="avatar" />
-      <div class="card-name" id="nameText"></div>
-      <div class="card-sub">Your digital card</div>
-    </div>
-  </main>
+  <div class="main">
+    <nav class="navbar">
+      <div class="logo">synpase</div>
+      <a href="index.html">
+        <button class="btn logout-btn" id="logoutBtn">Log out</button>
+      </a>
+    </nav>
+  
+    <main>
+      <div class="welcome" id="welcomeText">Welcome</div>
+      <div class="email" id="emailText"></div>
+  
+      <div class="card">
+        <img id="avatar" />
+        <div class="card-name" id="nameText"></div>
+        <div class="card-sub">Your digital card</div>
+      </div>
+    </main>
+  </div>
 
 </body>
 </html>
