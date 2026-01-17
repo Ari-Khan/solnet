@@ -54,11 +54,56 @@ main {
   padding: 1rem 2rem;
 }
 
+/* MAIN LAYOUT */
+
+main.grid {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  height: 100%;
+}
+
+.sidebar {
+  width: 220px;
+  background: #0f0f12;
+  border-right: 1px solid #222;
+  padding: 16px;
+}
+
+.sidebar:first-child {
+  padding-top: 5rem;
+}
+
+.side-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #fff;
+  padding: 12px;
+  text-align: left;
+  font-family: Inter, sans-serif;
+  cursor: pointer;
+}
+
+.side-btn:hover {
+  background: #1c1c22;
+}
+
+div.content {
+  height: 100%;
+  width: 100%;
+  margin: 8rem auto;
+}
+
 /* LOGO */
 .logo {
   font-size: 20px;
   font-weight: 700;
   letter-spacing: -0.5px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: inherit;
 }
 
 /* BUTTON */
@@ -269,44 +314,6 @@ main {
 .main {
   height: 100%;
   width: 100%;
-}
-
-.main main.grid {
-  display: grid;
-  grid-template-columns: 0.5fr 1.5fr;
-  height: 100%;
-}
-
-.main .sidebar {
-  width: 220px;
-  background: #0f0f12;
-  border-right: 1px solid #222;
-  padding: 16px;
-}
-
-.main .sidebar:first-child {
-  padding-top: 5rem;
-}
-
-.main .side-btn {
-  width: 100%;
-  background: none;
-  border: none;
-  color: #fff;
-  padding: 12px;
-  text-align: left;
-  font-family: Inter, sans-serif;
-  cursor: pointer;
-}
-
-.main .side-btn:hover {
-  background: #1c1c22;
-}
-
-.main div.content {
-  height: 100%;
-  width: 100%;
-  margin: 8rem auto;
 }
 
 .main .welcome {
