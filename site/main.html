@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Main</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      background: #0b0b0b;
+      color: #f5f5f5;
+      min-height: 100vh;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(15,15,15,0.8);
+      backdrop-filter: blur(12px);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    .logout {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    main {
+      padding: 48px 32px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .welcome {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .email {
+      color: #bdbdbd;
+      margin-bottom: 32px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #141414, #0e0e0e);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 24px;
+      max-width: 320px;
+    }
+
+    .card img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      margin-bottom: 12px;
+    }
+
+    .card-name {
+      font-weight: 600;
+      font-size: 18px;
+    }
+
+    .card-sub {
+      color: #bdbdbd;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">CardX</div>
+    <button class="logout" id="logoutBtn">Log out</button>
+  </nav>
+
+  <main>
+    <div class="welcome" id="welcomeText">Welcome</div>
+    <div class="email" id="emailText"></div>
+
+    <div class="card">
+      <img id="avatar" />
+      <div class="card-name" id="nameText"></div>
+      <div class="card-sub">Your digital card</div>
+    </div>
+  </main>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    auth.onAuthStateChanged(user => {
+      if (!user) {
+        // Not logged in → go to login page
+        window.location.href = "login.html";
+        return;
+      }
+
+      // Logged in → show user info
+      document.getElementById("welcomeText").textContent =
+        `Welcome, ${user.displayName}`;
+      document.getElementById("emailText").textContent = user.email;
+      document.getElementById("avatar").src = user.photoURL;
+      document.getElementById("nameText").textContent = user.displayName;
+    });
+
+    document.getElementById("logoutBtn").onclick = async () => {
+      await auth.signOut();
+      window.location.href = "login.html";
+    };
+  </script>
+
+</body>
+</html>
