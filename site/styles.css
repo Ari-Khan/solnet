@@ -86,6 +86,12 @@ main.grid {
 
 .side-btn:hover {
   background: #1c1c22;
+  border-radius: 20px;
+}
+
+.side-btn.active {
+  background-color: #212127;
+  border-radius: 20px;
 }
 
 div.content {

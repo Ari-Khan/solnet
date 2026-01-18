@@ -1,3 +1,15 @@
+// sidebar
+const currentPage = window.location.pathname.split("/").pop();
+const sidebarLinks = document.querySelectorAll(".sidebar a");
+
+sidebarLinks.forEach(link => {
+const hrefPage = link.getAttribute("href");
+if (hrefPage === currentPage) {
+    link.querySelector(".side-btn").classList.add("active");
+}
+});
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyDzgzWWinou5yEjLksEJBCOcIIin0lrWA8",
     authDomain: "solnet-f2191.firebaseapp.com",
