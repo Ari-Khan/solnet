@@ -11,7 +11,9 @@
 
   <link rel="icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="styles.css" />
-  <script src="js/connect.js" defer></script>
+  <script type="module" src="js/connect.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
 </head>
 <body>
   <div class="connect">
@@ -36,7 +38,9 @@
       </div>
       <div class="content">
         <h1 class="connect-title">Connect with a new friend</h1>
-        <button class="btn connect-btn">Generate a new QR Code</button>
+        <p>QR codes expire in 1 minute</p>
+        <button class="btn connect-btn" id="connectButton">Generate a new QR Code</button>
+        <div id="qrcode"></div>
       </div>
     </main>
   </div>

@@ -478,3 +478,11 @@ div.content {
 .btn.connect-btn:hover {
   box-shadow: 0 10px 30px rgba(124, 92, 255, 0.35);
 }
+
+.connect #qrcode {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  width: fit-content;
+  border-radius: 15px;
+}
