@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Main</title>
+  <title>Connect with others</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Firebase -->
@@ -11,10 +11,12 @@
 
   <link rel="icon" href="assets/favicon.ico">
   <link rel="stylesheet" href="styles.css" />
-  <script src="js/main.js" defer></script>
+  <script type="module" src="js/connect.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+
 </head>
 <body>
-  <div class="main">
+  <div class="connect">
     <nav class="navbar">
       <a href="main.html">
         <div class="logo">synapse</div>
@@ -40,14 +42,10 @@
         </a>
       </div>
       <div class="content">
-        <div class="welcome" id="welcomeText">Welcome</div>
-        <div class="email" id="emailText"></div>
-    
-        <div class="card">
-          <img id="avatar" />
-          <div class="card-name" id="nameText"></div>
-          <div class="card-sub" id="jobText">Loading...</div>
-        </div>
+        <h1 class="connect-title">Generate a QR code</h1>
+        <p>QR codes expire in 1 minute</p>
+        <button class="btn connect-btn" id="connectButton">Generate a new QR Code</button>
+        <div id="qrcode"></div>
       </div>
     </main>
   </div>

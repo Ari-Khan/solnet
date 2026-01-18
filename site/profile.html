@@ -5,12 +5,18 @@
   <title>Edit Profile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css" />
+  
+  <link rel="icon" href="assets/favicon.ico">
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
 </head>
 
 <body>
 
   <nav class="navbar">
-    <div class="logo">synapse</div>
+    <a href="main.html">
+      <div class="logo">synapse</div>
+    </a>
 
     <a href="index.html">
       <button class="btn logout-btn" id="logoutBtn">
@@ -27,48 +33,77 @@
       Set up your digital card so others can discover and connect with you.
     </p>
 
-    <form class="profile-form">
+    <form class="profile-form" id="profileForm">
 
       <div class="row">
         <div class="field">
           <label>First name <span>*</span></label>
-          <input type="text" placeholder="First name" required />
+          <input
+            type="text"
+            id="firstName"
+            placeholder="First name"
+            required
+            disabled
+          />
         </div>
 
         <div class="field">
           <label>Last name <span>*</span></label>
-          <input type="text" placeholder="Last name" required />
+          <input
+            type="text"
+            id="lastName"
+            placeholder="Last name"
+            required
+            disabled
+          />
         </div>
       </div>
 
       <div class="field full">
         <label>Job / Role</label>
-        <input type="text" placeholder="Student, Developer, Designer" />
+        <input
+          type="text"
+          id="job"
+          placeholder="Student, Developer, Designer"
+        />
       </div>
 
       <div class="field full">
         <label>Country</label>
-        <input type="text" placeholder="Canada" />
+        <input
+          type="text"
+          id="country"
+          placeholder="Canada"
+        />
       </div>
 
       <div class="field full">
         <label>Bio</label>
-        <textarea placeholder="Tell people about yourself"></textarea>
+        <textarea
+          id="bio"
+          placeholder="Tell people about yourself"
+        ></textarea>
       </div>
 
       <div class="field full">
         <label>Skills</label>
-        <input type="text" placeholder="Web, AI, Backend, Design" />
+        <input
+          type="text"
+          id="skills"
+          placeholder="Web, AI, Backend, Design"
+        />
       </div>
 
       <div class="actions">
-        <button type="button" class="cancel">Cancel</button>
+        <a href="main.html" class="cancel-link">
+        <button type="button" class="cancel" id="cancelBtn">Cancel</button>
+        </a>
         <button type="submit" class="save">Save Profile</button>
       </div>
 
     </form>
 
   </div>
-
+  <script src="js/profile.js"></script>
 </body>
 </html>
