@@ -15,17 +15,17 @@ router.put("/", async (req, res) => {
     }
 
     const updatedRequest = await Collection.findOneAndUpdate(
-        { ownerEmail: selfEmail },
-        {
-            $setOnInsert: { ownerEmail: selfEmail }, // create ownerEmail if document doesn't exist
-            $addToSet: { contacts: { email: friendEmail } } // add friendEmail if it doesn't exist
-        },
-        { new: true, runValidators: true, upsert: true }
-    );
-
-    if (!updatedRequest) {
-        return res.status(404).json({ error: "Profile not found for: " + selfEmail });
+    { ownerEmail: selfEmail },
+    {
+        $addToSet: {
+        contacts: { email: friendEmail }
+        }
+    },
+    {
+        new: true,
+        upsert: true
     }
+    );
 
     res.json({ ok: true, request: updatedRequest });
 });
