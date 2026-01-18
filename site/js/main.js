@@ -72,13 +72,16 @@ auth.onAuthStateChanged(async user => {
       card.className = "card";
 
       card.innerHTML = `
-        <img 
-          src="${p.avatar || "assets/default-avatar.png"}"
-          referrerpolicy="no-referrer"
-        />
-        <div class="card-name">${p.firstName || ""} ${p.lastName || ""}</div>
+        <img src="${p.avatar || "assets/default-avatar.png"}" />
+        <div class="card-name clickable">
+          ${p.firstName || ""} ${p.lastName || ""}
+        </div>
         <div class="card-sub">${p.job || "No job set"}</div>
       `;
+
+      card.onclick = () => {
+        window.location.href = `user.html?email=${encodeURIComponent(p.email)}`;
+      };
 
       container.appendChild(card);
     }
