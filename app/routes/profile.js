@@ -68,4 +68,14 @@ router.get("/", async (req, res) => {
   res.json(profile);
 });
 
+router.get("/", async (req, res) => {
+  const { email } = req.query;
+  if (!email) return res.status(400).json({ error: "Missing email" });
+
+  const profile = await Profile.findOne({ email });
+  if (!profile) return res.status(404).json({});
+
+  res.json(profile);
+});
+
 export default router;

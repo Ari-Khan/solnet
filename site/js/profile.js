@@ -10,7 +10,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-firebase.auth().onAuthStateChanged((user) => {
+firebase.auth().onAuthStateChanged(async (user) => {
   if (!user) {
     window.location.href = "index.html";
     return;
@@ -19,6 +19,29 @@ firebase.auth().onAuthStateChanged((user) => {
   const form = document.querySelector(".profile-form");
   if (!form) return;
 
+  // 🔹 LOAD EXISTING PROFILE DATA
+  try {
+    const res = await fetch(`/api/profile?email=${encodeURIComponent(user.email)}`);
+    if (res.ok) {
+      const profile = await res.json();
+
+      document.getElementById("job").value = profile.job || "";
+      document.getElementById("country").value = profile.country || "";
+      document.getElementById("bio").value = profile.bio || "";
+      document.getElementById("skills").value = profile.skills || "";
+    }
+  } catch (err) {
+    console.error("Failed to load profile", err);
+  }
+
+	const fullName = user.displayName || "";
+	const [firstName, ...rest] = fullName.split(" ");
+	const lastName = rest.join(" ");
+
+	document.getElementById("firstName").value = firstName || "";
+	document.getElementById("lastName").value = lastName || "";
+	
+  // 🔹 SAVE PROFILE
   form.onsubmit = async (e) => {
     e.preventDefault();
 
