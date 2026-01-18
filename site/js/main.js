@@ -80,7 +80,7 @@ auth.onAuthStateChanged(async user => {
       `;
 
       card.onclick = () => {
-        window.location.href = `user.html?email=${encodeURIComponent(p.email)}`;
+        window.location.href = `card.html?email=${encodeURIComponent(p.email)}`;
       };
 
       container.appendChild(card);
