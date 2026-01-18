@@ -37,7 +37,7 @@ btn.addEventListener('click', async () => {
                             const diffMs = Math.abs(now - qrTime);
                             const diffHours = diffMs / (1000 * 60 * 60);
 
-                            if (diffHours <= 1) {
+                            if (diffHours <= 24) { // TODO
                                 await firebase.auth().onAuthStateChanged(async (user) => {
                                     if (!user) {
                                         window.location.href = "index.html";
