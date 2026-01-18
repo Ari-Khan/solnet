@@ -408,3 +408,40 @@ main {
   background: #1c1c22;
 }
 
+.learnMoreTitle {
+  text-align: left;
+  margin-left: 100px;
+  margin-top: 0px;
+}
+
+.learnMore {
+  position: absolute;
+  margin-top: 200px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 40px;
+}
+
+.tagline {
+  text-align: left;
+  margin-top: 80px;
+}
+
+.aboutUs {
+  margin-top: 40px;
+}
+
+.aboutUsBox{
+  border: 1px solid white;
+  border-radius: 10px;
+  padding: 10px 10px;
+  margin-bottom: 100px;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 200px;
+}
+
+
