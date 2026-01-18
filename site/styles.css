@@ -650,3 +650,33 @@ div.content {
   border-radius: 15px;
   font-size: 0.9rem;
 }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.token-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+
+  background: #111;
+  color: white;
+  border-radius: 999px;
+  padding: 0.4rem 0.7rem;
+
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.token-icon {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.token-count {
+  font-size: 0.9rem;
+}
